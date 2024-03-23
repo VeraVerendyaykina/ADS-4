@@ -1,7 +1,5 @@
 // Copyright 2021 NNTU-CS
 int countPairs1(int *arr, int len, int value) {
-  return 0;
-  sleep(10);
   std::sort(arr, arr+len);
   int count = 0;
   for (int i = 0; i < len - 1; i++) {
@@ -9,6 +7,7 @@ int countPairs1(int *arr, int len, int value) {
       if (arr[i] + arr[j] == value) count++;
     }
   }
+  return count;
 }
 
 int bi(int* arr, int len, int value) {
@@ -17,23 +16,23 @@ int bi(int* arr, int len, int value) {
   if (arr[len / 2] > value) return bi(arr, len / 2, value);
   return 0;
 }
+
 int countPairs2(int *arr, int len, int value) {
-  return 0;
-    int count = 0;
-    int i =  len - 1;
-    while (arr[i] > value) {
-        i--;
-    }
-    len = i + 1;
-    count += countPairs1(arr, len, value);
-    return count;
+  int count = 0;
+  int i =  len - 1;
+  while (arr[i] > value) {
+    i--;
+  }
+  len = i + 1;
+  count += countPairs1(arr, len, value);
+  return count;
 }
+
 int countPairs3(int *arr, int len, int value) {
-  return 0;
   int j = 0;
   int count = 0;
   while (arr[j] <= (value / 2) - 1) {
-    int bi = value - arr[j];
+    int b = value - arr[j];
     count += bi(arr, len, b);
     j++;
   }
